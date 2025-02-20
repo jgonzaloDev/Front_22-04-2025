@@ -22,6 +22,13 @@
 				:class="{ active: activePath.posts }">
 				<span class="material-icons-round"> featured_play_list </span>
 			</router-link>
+
+			<router-link
+				to="/menu"
+				class="nav-link"
+				:class="{ active: activePath.menu }">
+				<span class="material-icons-round"> menu </span>
+			</router-link>
 		</div>
 	</nav>
 </template>
@@ -44,24 +51,35 @@
 						home: true,
 						about: false,
 						posts: false,
+						menu: false,
 					}
 				} else if (this.$route.path === '/about') {
 					return {
 						home: false,
 						about: true,
 						posts: false,
+						menu: false,
 					}
 				} else if (this.$route.path === '/posts') {
 					return {
 						home: false,
 						about: false,
 						posts: true,
+						menu: false,
 					}
-				} else {
+				}  else if (this.$route.path === '/menu') {
 					return {
 						home: false,
 						about: false,
 						posts: false,
+						menu: true,
+					}
+				}else {
+					return {
+						home: false,
+						about: false,
+						posts: false,
+						menu: false,
 					}
 				}
 			},

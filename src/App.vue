@@ -11,6 +11,7 @@
 <script>
 	import NavComp from '@/components/NavComp.vue'
 	import FootNav from '@/components/FootNav.vue'
+	
 	export default {
 		name: 'App',
 		components: {
