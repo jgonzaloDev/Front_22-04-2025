@@ -1,15 +1,15 @@
 <template>
 	<div class="home">
 		<div class="row mx-0">
-			<div class="col-lg-6">
+			<!-- <div class="col-lg-6">
 				<div class="img-cont">
-					<img alt="Vue logo" src="../assets/img/wordmark.svg" />
-					<h2 class="text-center text-lg-start">
+					 <img alt="Vue logo" src="../assets/img/wordmark.svg" /> 
+					 <h2 class="text-center text-lg-start">
 						Conéctate con amigos y el resto del mundo usando Mazebook
-					</h2>
+					</h2> 
 				</div>
-			</div>
-			<div class="col-lg-6">
+			</div> -->
+			<div class="col-lg-12">
 				<card-comp :btns="btnArray" class="mx-auto card-comp">
 					<template #default>
 						<form>

@@ -31,6 +31,16 @@ const routes = [
 		name: 'menu',
 		component: () => import('../views/MenuView.vue'),
 	},
+	{
+		path: '/report',
+		name: 'report',
+		component: () => import('../views/ReportView.vue'),
+	},
+	{
+		path: '/chart',
+		name: 'chart',
+		component: () => import('../views/ChartView.vue'),
+	}
 ]
 
 const router = createRouter({

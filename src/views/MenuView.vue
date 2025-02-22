@@ -5,7 +5,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="/" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -61,7 +61,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Quinua Corp°</span>
             </a>
 
             <a @click="toggleMenuBar" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -136,34 +136,34 @@
              
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown" :class="{ 'show': isDropdownOpen }">
-    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" @click="toggleDropdown">
-      <div class="avatar avatar-online">
-        <img src="../assets/img/avatars/8.jpg" alt class="w-px-40 h-auto rounded-circle" />
-      </div>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" :class="{ 'show': isDropdownOpen }">
-      <li>
-        <a class="dropdown-item" href="#">
-          <div class="d-flex">
-            <div class="flex-shrink-0 me-3">
-              <div class="avatar avatar-online">
-                <img src="../assets/img/avatars/8.jpg" alt class="w-px-40 h-auto rounded-circle" />
-              </div>
-            </div>
-            <div class="flex-grow-1">
-              <span class="fw-semibold d-block">Diego Bueno</span>
-              <small class="text-muted">Admin</small>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li><div class="dropdown-divider"></div></li>
-      <li><a class="dropdown-item" href="#"><i class="bx bx-user me-2"></i> <span class="align-middle">Mi Perfil</span></a></li>
-      <li><a class="dropdown-item" href="#"><i class="bx bx-cog me-2"></i> <span class="align-middle">Configuración</span></a></li>
-      <li><div class="dropdown-divider"></div></li>
-      <li><a class="dropdown-item" href="/"><i class="bx bx-power-off me-2"></i> <span class="align-middle">Cerrar Sesión</span></a></li>
-    </ul>
-  </li>
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" @click="toggleDropdown">
+                  <div class="avatar avatar-online">
+                    <img src="../assets/img/avatars/8.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" :class="{ 'show': isDropdownOpen }">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <div class="d-flex">
+                        <div class="flex-shrink-0 me-3">
+                          <div class="avatar avatar-online">
+                            <img src="../assets/img/avatars/8.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1">
+                          <span class="fw-semibold d-block">Diego Bueno</span>
+                          <small class="text-muted">Admin</small>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li><div class="dropdown-divider"></div></li>
+                  <li><a class="dropdown-item" href="#"><i class="bx bx-user me-2"></i> <span class="align-middle">Mi Perfil</span></a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bx bx-cog me-2"></i> <span class="align-middle">Configuración</span></a></li>
+                  <li><div class="dropdown-divider"></div></li>
+                  <li><a class="dropdown-item" href="/"><i class="bx bx-power-off me-2"></i> <span class="align-middle">Cerrar Sesión</span></a></li>
+                </ul>
+              </li>
                 <!--/ User -->
               </ul>
             </div>
@@ -188,10 +188,12 @@
                             para mantenerte al día en el proceso.
                           </p>
 
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">Ver Reporte</a>
+                          <a href="/report" class="btn btn-sm btn-outline-primary">Ver Reporte</a>
+                          <GeneratePDF />
+                          <!-- <a @click="generatePDF" style="margin-left: 18px;" class="btn btn-sm btn-outline-primary">Generar PDF</a> -->
                         </div>
                       </div>
-                      <div class="col-sm-5 text-center text-sm-left">
+                      <div class="col-sm-5 text-sm-left" style="text-align: right !important;">
                         <div class="card-body pb-0 px-0 px-md-4">
                           <img
                             src="../assets/img/illustrations/man-with-laptop-light.png"
@@ -211,58 +213,34 @@
                   <div class="card-datatable text-nowrap">
                     <div id="DataTables_Table_0_wrapper" class="dt-container dt-bootstrap5 dt-empty-footer">
                       <div class="row card-header flex-column flex-md-row pb-0">
-                        <div class="d-md-flex justify-content-between align-items-center dt-layout-start col-md-auto me-auto mt-0">
-                        <h5 class="card-title mb-0 text-md-start text-center">Manteimiento de Productos</h5>
+                        <div class="d-md-flex justify-content-between align-items-center dt-layout-start col-md-auto me-auto mt-0 mb-4">
+                        <h2 class="card-title mb-0 text-md-start text-center">Mantenimiento de Productos</h2>
                       </div>
-                      <div class="d-md-flex justify-content-between align-items-center dt-layout-end col-md-auto ms-auto mt-0">
+                      <div class="d-md-flex justify-content-between align-items-center dt-layout-end col-md-auto ms-auto mt-0 mb-4">
                         <div class="dt-buttons btn-group flex-wrap mb-0">
-                          <div class="btn-group">
-                            <button class="btn buttons-collection btn-label-primary dropdown-toggle me-4" tabindex="0" aria-controls="DataTables_Table_0" type="button" aria-haspopup="dialog" aria-expanded="false">
-                              <span>
-                              <span class="d-flex align-items-center gap-2">
-                                <i class="icon-base bx bx-export me-sm-1"></i> 
-                                <span class="d-none d-sm-inline-block">Export</span>
-                              </span>
-                            </span>
-                          </button>
-                        </div> 
-                      <button class="btn create-new btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button">
+                      <button class="btn create-new btn-primary"  data-bs-toggle="modal" 
+                                    data-bs-target="#exampleModal2" 
+                                    data-bs-whatever="@mdo"
+                                    tabindex="0" aria-controls="DataTables_Table_0" type="button">
                         <span><span class="d-flex align-items-center gap-2">
                           <i class="icon-base bx bx-plus icon-sm"></i> 
-                          <span class="d-none d-sm-inline-block">Add New Record</span>
+                          <span class="d-none d-sm-inline-block">Agregar Producto</span>
                         </span></span>
                       </button> 
                     </div>
                   </div>
                 </div>
                 <div class="row m-3 my-0 justify-content-between">
-                  <div class="d-md-flex justify-content-between align-items-center dt-layout-start col-md-auto me-auto mt-0">
-                    <div class="dt-length">
-                      <label for="dt-length-0">Show
-                        <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-select" id="dt-length-0">
-                          <option value="10">10</option>
-                          <option value="25">25</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
-                        </select>entries</label>
-                      </div>
-                    </div>
-                    <div class="d-md-flex justify-content-between align-items-center dt-layout-end col-md-auto ms-auto mt-0">
-                      <div class="dt-search mt-0 mt-md-6">
-                        <label for="dt-search-0">Search:</label>
-                        <input type="search" class="form-control ms-4" id="dt-search-0" placeholder="" aria-controls="DataTables_Table_0">
-                      </div>
-                    </div>
                   </div>
                   <div class="justify-content-between dt-layout-table"><div class="d-md-flex justify-content-between align-items-center col-12 dt-layout-full col-md">
-                    <table class="datatables-basic table table-bordered table-responsive dataTable dtr-column" id="DataTables_Table_0" 
+                    <DataTable :apiData="apiData" @edit="fetchUpdate" @delete="deleteModal" />
+                    <!-- <table class="datatables-basic table table-bordered table-responsive dataTable dtr-column" id="DataTables_Table_0" 
                     :items="apiData" :fields="fields" aria-describedby="DataTables_Table_0_info" style="width: 100%;">
                       <colgroup>
                         <col data-dt-column="1" style="max-width: 10% !important">
                         <col data-dt-column="2" style="max-width: 10% !important">
                         <col data-dt-column="3" style="width: 20px;">
                         <col data-dt-column="4" style="width: 14px;">
-                        <!-- <col data-dt-column="5" style="width: 14px;"> -->
                       </colgroup>
                       <thead>
                         <tr>
@@ -270,23 +248,15 @@
                             <span class="dt-column-title"></span>
                             <span class="dt-column-order"></span>
                           </th>
-                          <th data-dt-column="1" rowspan="1" colspan="1" class="dt-select dt-orderable-none" aria-label="">
-                            <span class="dt-column-title"></span>
-                            <span class="dt-column-order"></span>
-                            <input class="form-check-input" type="checkbox" aria-label="Select all rows"></th>
-                            <th data-dt-column="2" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Name: Activate to sort" tabindex="0">
+                            <th data-dt-column="1" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Name: Activate to sort" tabindex="0">
                               <span class="dt-column-title" role="button">Titulo</span>
                               <span class="dt-column-order"></span>
                             </th>
-                            <!-- <th data-dt-column="3" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Email: Activate to sort" tabindex="0">
-                              <span class="dt-column-title" role="button">Descripción</span>
-                              <span class="dt-column-order"></span>
-                            </th> -->
-                              <th data-dt-column="3" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Status: Activate to sort" tabindex="0">
+                              <th data-dt-column="2" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Status: Activate to sort" tabindex="0">
                                 <span class="dt-column-title" role="button">Categoria</span>
                                 <span class="dt-column-order"></span>
                               </th>
-                              <th class="d-flex align-items-center dt-orderable-none" data-dt-column="4" rowspan="1" colspan="1" aria-label="Actions">
+                              <th class="d-flex align-items-center dt-orderable-none" data-dt-column="3" rowspan="1" colspan="1" aria-label="Actions">
                                 <span class="dt-column-title">Actions</span>
                                 <span class="dt-column-order"></span>
                               </th>
@@ -295,13 +265,10 @@
                       <tbody>
                         <tr style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis" v-for="ld in apiData" v-bind:key="ld.id" class="">
                           <td class="control dtr-hidden" tabindex="0" style="display: none;">{{ ld.id }}</td>
-                          <td  class="dt-select">
-                            <input aria-label="Select row" class="form-check-input" type="checkbox"></td>
                             <td>
                             <div class="d-flex justify-content-start align-items-center user-name">
                               <div class="avatar-wrapper">
                                 <div class="avatar me-2">
-                                 <!-- <span class="avatar-initial rounded-circle bg-label-primary">GG</span>  -->
                                   <img :src="ld.image" alt="Avatar" class="rounded-circle">
                                 </div>
                               </div>
@@ -310,9 +277,6 @@
                               </div>
                             </div>
                           </td>
-                          <!-- <td style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis">
-                            <span style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis" class="emp_name text-truncate text-heading">{{ ld.title}}</span>
-                          </td> -->
                           <td>
                             <span :class="getCategoryClass(ld.category)">
                               {{ ld.category }}
@@ -320,65 +284,32 @@
                           </td>
                           <td class="d-flex align-items-center">
                             <a href="javascript:;" class="btn btn-icon item-edit">
-                                <i class="icon-base bx bx-edit icon-sm text-primary"></i>
+                                <i data-bs-toggle="modal" 
+                                    data-bs-target="#exampleModal" 
+                                    data-bs-whatever="@mdo"
+                                    @click="fetchUpdate(ld.id)" 
+                                    class="icon-base bx bx-edit icon-sm text-primary"></i>
                               </a>
-                              <a href="javascript:;" class="btn btn-icon item-edit">
+                              <a href="javascript:;" data-bs-toggle="modal" 
+                                    data-bs-target="#animationModal" 
+                                    data-bs-whatever="@mdo" @click="deleteModal(ld.id)"   class="btn btn-icon item-delete">
                                 <i class="icon-base bx bx-minus-circle icon-sm text-danger"></i>
                               </a>
                             </td>
                         </tr>
                       </tbody>
-                    <tfoot></tfoot></table></div></div><div class="row mx-3 justify-content-between">
-                      <div class="d-md-flex justify-content-between align-items-center dt-layout-start col-md-auto me-auto mt-0">
-                        <div class="dt-info" aria-live="polite" id="DataTables_Table_0_info" role="status">Showing 1 to 10 of 100 entries</div>
-                      </div><div class="d-md-flex justify-content-between align-items-center dt-layout-end col-md-auto ms-auto mt-0">
-                        <div class="dt-paging"><nav aria-label="pagination">
-                          <ul class="pagination">
-                          <li class="dt-paging-button page-item disabled">
-                            <button class="page-link previous" role="link" type="button" aria-controls="DataTables_Table_0" aria-disabled="true" aria-label="Previous" data-dt-idx="previous" tabindex="-1"><i class="icon-base bx bx-chevron-left scaleX-n1-rtl icon-sm"></i></button>
-                          </li>
-                          <li class="dt-paging-button page-item active">
-                            <button class="page-link" role="link" type="button" aria-controls="DataTables_Table_0" aria-current="page" data-dt-idx="0">1</button>
-                          </li>
-                          <li class="dt-paging-button page-item">
-                            <button class="page-link" role="link" type="button" aria-controls="DataTables_Table_0" data-dt-idx="1">2</button>
-                          </li>
-                          <li class="dt-paging-button page-item">
-                            <button class="page-link" role="link" type="button" aria-controls="DataTables_Table_0" data-dt-idx="2">3</button>
-                          </li>
-                          <li class="dt-paging-button page-item">
-                            <button class="page-link" role="link" type="button" aria-controls="DataTables_Table_0" data-dt-idx="3">4</button>
-                          </li>
-                          <li class="dt-paging-button page-item">
-                            <button class="page-link" role="link" type="button" aria-controls="DataTables_Table_0" data-dt-idx="4">5</button>
-                          </li>
-                          <li class="dt-paging-button page-item disabled">
-                            <button class="page-link ellipsis" role="link" type="button" aria-controls="DataTables_Table_0" aria-disabled="true" data-dt-idx="ellipsis" tabindex="-1">…</button>
-                          </li>
-                          <li class="dt-paging-button page-item">
-                            <button class="page-link" role="link" type="button" aria-controls="DataTables_Table_0" data-dt-idx="9">10</button>
-                          </li>
-                          <li class="dt-paging-button page-item">
-                            <button class="page-link next" role="link" type="button" aria-controls="DataTables_Table_0" aria-label="Next" data-dt-idx="next">
-                              <i class="icon-base bx bx-chevron-right scaleX-n1-rtl icon-sm"></i>
-                            </button>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                  </div>
+                    <tfoot></tfoot>
+                  </table> -->
                 </div>
+              </div>
+               
               </div>
                   </div>
                 </div>
                 </div>
-
-             
-                <!--/ Total Revenue -->
+                <!--/ Fin Mant -->
               </div>
               <div class="row">
-
-
               </div>
             </div>
             <!-- / Content -->
@@ -390,7 +321,6 @@
               </div>
             </footer>
             <!-- / Footer -->
-
             <div class="content-backdrop fade"></div>
           </div>
           <!-- Content wrapper -->
@@ -400,97 +330,226 @@
 
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Productos</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form v-if="apiUpdate">
+					<div class="mb-3">
+						<label for="title-text" class="col-form-label">Titulo: </label>
+						<input type="text" class="form-control" id="title-text" v-model="apiUpdate.title" >
+					</div>
+					<div class="mb-3">
+						<label for="category-text" class="col-form-label">Descripción: </label>
+						<textarea class="form-control" id="category-text" v-model="apiUpdate.description"></textarea>
+					</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+					<button type="button" @click="registerProduct" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+				</div>
+        <pre>{{ jsonFormat }}</pre>
+				</div>
+			</div>
+			</div>
+
+      <div class="modal fade" ref="modalRef" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Productos</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">Titulo: </label>
+						<input type="text" class="form-control" id="title-text" v-model="newProduct.title" >
+					</div>
+					<div class="mb-3">
+						<label for="message-text" class="col-form-label">Descripción: </label>
+						<textarea class="form-control" id="category-text" v-model="newProduct.description"></textarea>
+					</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+					<button type="button" @click="registerProduct" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+				</div>
+				</div>
+			</div>
+			</div>
+
+      <div class="modal animate__animated animate__fadeInDown" id="animationModal" tabindex="-1" style="display: none;" aria-modal="true" role="dialog">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel5">Advertencia</h2>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col mb-6">
+                        <h5 class="modal-title" id="exampleModalLabel5">¿Está seguro que desea eliminar el producto?</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  @click="fetchDelete()">Si</button>
+                  </div>
+                </div>
+            </div>
+      </div>
+
     </div>
-    <!-- / Layout wrapper -->
   </template>
   <script setup>
-  import { ref, onMounted  } from "vue";
-  import "@/assets/sidebars.css";
-  import "@/assets/sidebars.js";
-  import "@/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.css";
-  import "@/assets/vendor/libs/datatables-buttons-bs5/buttons-bootstrap5.css";
-  import "@/assets/vendor/js/menu.js";
-  import "@/assets/vendor/js/bootstrap.js";
-  import "@/assets/vendor/css/core.css";
-  import "@/assets/vendor/css/theme-default.css";
-  import "@/assets/vendor/libs/apex-charts/apexcharts.js";
-  import axios from 'axios';
+      import { ref, onMounted, computed, toRaw  } from "vue";
+      import "@/assets/sidebars.css";
+      import "@/assets/sidebars.js";
+      import "@/assets/vendor/libs/datatables-buttons-bs5/buttons-bootstrap5.css";
+      import "@/assets/vendor/js/menu.js";
+      import "@/assets/vendor/js/bootstrap.js";
+      import "@/assets/vendor/css/core.css";
+      import "@/assets/vendor/css/theme-default.css";
+      import "@/assets/vendor/libs/apex-charts/apexcharts.js";
+      import DataTable from "@/components/DataTable.vue";
+      import GeneratePDF from "@/components/GeneratePDF.vue";
+      import axios from 'axios';
+
+
+        const newProduct = ref({
+          title: "",
+          price: 13.5,
+          description: "",
+          category: "electronics",
+          image: "https://i.pravatar.cc",
+        });
           
-        const fields = ref(['id', 'title', 'price', 'description', 'category', 'image']);
-        const id = ref("");
-        const title = ref("");
-        const description = ref("");
-        const category = ref("");
-        const listardatos = ref([]);
+        const modalRef = ref(null);
 
-        const getCategoryClass = (category) => {
-          return {
-            "badge": true,
-            "bg-label-warning": category === "men's clothing",
-            "bg-label-success": category === "electronics", 
-            "bg-label-primary": category === "jewelery",
-            "bg-label-danger": category === "women's clothing",
-          };
-        };
-
-          // Menú
         const menuItems = ref([
-          { title: "Home", isOpen: false, subItems: ["Overview", "Updates", "Reports"] },
-          { title: "Dashboard", isOpen: false, subItems: ["Overview", "Weekly", "Monthly", "Annually"] },
-          { title: "Orders", isOpen: false, subItems: ["New", "Processed", "Shipped", "Returned"] },
+          { title: "Productor de Campo", isOpen: false, subItems: ["Plan de actividades", "Registro de cosecha", "Registro de ventas"] },
+          { title: "Almacén Central", isOpen: false, subItems: ["Registro de recepción", "Etiquetado de sacos", "Guía de salida de producto a proceso", "Guía de ingreso a planta procesadora"] },
+          { title: "Procesamiento", isOpen: false, subItems: ["Registros de procesamiento (HACCP, BPM, y PHS)", "Orden de proceso", "Liquidación de orden de proceso (resultados de proceso)", "Marcado de sacos"] },
         ]);
 
         const toggleMenu = (index) => {
           menuItems.value[index].isOpen = !menuItems.value[index].isOpen;
         };
 
-        // Estado para Dropdown
         const isDropdownOpen = ref(false);
         const toggleDropdown = () => {
           isDropdownOpen.value = !isDropdownOpen.value;
         };
 
-        // Expansión del Menú
         const isMenuExpanded = ref(false);
         const toggleMenuBar = () => {
           isMenuExpanded.value = !isMenuExpanded.value;
-
-          // Modifica la clase del <html> en index.html
           document.documentElement.classList.toggle('layout-menu-expanded', isMenuExpanded.value);
         };
 
-        const apiData = ref([]); // Donde se guardarán los datos de la API
+        const apiData = ref([]); 
         const fetchData = async () => {
           try {
             const response = await axios.get("https://fakestoreapi.com/products");
-            apiData.value = response.data; // Almacena los datos en apiData
-            //listardatos = apiData.value;
+            apiData.value = response.data; 
             console.log("Datos cargados:", apiData.value);
           } catch (error) {
             console.error("Error al obtener los datos:", error);
           }
         };
 
-        const isDropdownEditOpen = ref(false);
+        const apiUpdate = ref(null);
+        const fetchUpdate = async (id) => {
 
-        // Función para abrir/cerrar el menú
-        const toggleDropEditdown = () => {
-          isDropdownEditOpen.value = !isDropdownEditOpen.value;
+          if (id === 0) {
+            apiUpdate.value = { title: "", description: "", category: "" };
+            console.log("Campos vaciados porque ID es 0");
+            return;
+          }
+
+          try {
+            console.log("Dato cargados Edit:", id);
+            const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+            apiUpdate.value =  response.data || { title: "", price: "", description: "", category: "" };
+            console.log("Datos cargados Edit:", apiUpdate.value);
+          } catch (error) {
+            console.error("Error al obtener los datos:", error);
+          }
+        };
+        const jsonFormat = computed(() => JSON.stringify(toRaw(apiUpdate.value), null, 2));
+
+        
+        const fetchDelete = async () => {
+
+          
+            try {
+              console.log("Dato cargados Delete:", modalDeleteRef.value);
+              //const response = await axios.delete(`https://fakestoreapi.com/products/${id}`);
+              //apiUpdate.value =  response.data || { title: "", price: "", description: "", category: "" };
+              apiData.value = apiData.value.filter(product => product.id !== modalDeleteRef.value);
+              console.log("Datos cargados Delete:", apiUpdate.value);
+            } catch (error) {
+              console.error("Error al obtener los datos:", error);
+            }
         };
 
-        // Llamar a la API cuando el componente se monte
+        const registerProduct = async () => {
+            try {
+              console.log("Registrando producto...", newProduct.value );
+              
+              const response = await axios.post("https://fakestoreapi.com/products", newProduct.value);
+              console.log("Registrando producto...", newProduct.value );
+          
+              if(apiUpdate.value != null){
+                      console.log("Producto actualizado con éxito:", response.data);
+                      alert("Producto actualizado correctamente!");
+              }else{
+                console.log("Producto registrado con éxito:", response.data);
+                alert("Producto registrado correctamente!");
+              }
+             
+             
+              newProduct.value = { title: ""};
+          
+              closeModal();
+            } catch (error) {
+              console.error("Error al registrar el producto:", error);
+              alert("Hubo un error al registrar el producto.");
+            }
+          };
+
+          const closeModal = () => {
+            if (modalRef.value) {
+              modalRef.value.classList.remove("show");
+              modalRef.value.style.display = "none";
+              document.body.classList.remove("modal-open");
+            }
+          };
+
+          const modalDeleteRef = ref(0);
+          const deleteModal = (id) => {
+            modalDeleteRef.value = id;
+          };
+
         onMounted(fetchData);
 
   </script>
   
   <style scoped>
-  .btn-toggle {
-    background: none;
-    color: inherit;
-    font-weight: 600;
-  }
+    .btn-toggle {
+      background: none;
+      color: inherit;
+      font-weight: 600;
+    }
 
-  .bd-placeholder-img {
+    .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
@@ -542,37 +601,37 @@
       }
 
       .nav-link.active {
-    background-color: #007bff;
-    color: white;
-  }
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-  }
+        background-color: #007bff;
+        color: white;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+      }
 
-  .dropdown.show .dropdown-menu {
-    display: block;
-  }
-  .submenu {
-    list-style: none;
-    padding-left: 20px;
-  }
+      .dropdown.show .dropdown-menu {
+        display: block;
+      }
+      .submenu {
+        list-style: none;
+        padding-left: 20px;
+      }
 
-  .nav-item.open > .submenu {
-    display: block;
-  }
+      .nav-item.open > .submenu {
+        display: block;
+      }
 
-  .dropdownEdit-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-  }
+      .dropdownEdit-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+      }
 
-  .dropdownEdit-menu {
-    display: block;
-  }
+      .dropdownEdit-menu {
+        display: block;
+      }
   </style>
   

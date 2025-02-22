@@ -16,12 +16,12 @@
 				<span class="material-icons-round"> info </span>
 			</router-link>
 
-			<router-link
+			<!-- <router-link
 				to="/posts"
 				class="nav-link"
 				:class="{ active: activePath.posts }">
 				<span class="material-icons-round"> featured_play_list </span>
-			</router-link>
+			</router-link> -->
 
 			<router-link
 				to="/menu"
@@ -52,6 +52,7 @@
 						about: false,
 						posts: false,
 						menu: false,
+						report: false,
 					}
 				} else if (this.$route.path === '/about') {
 					return {
@@ -59,6 +60,7 @@
 						about: true,
 						posts: false,
 						menu: false,
+						report: false,
 					}
 				} else if (this.$route.path === '/posts') {
 					return {
@@ -66,6 +68,7 @@
 						about: false,
 						posts: true,
 						menu: false,
+						report: false,
 					}
 				}  else if (this.$route.path === '/menu') {
 					return {
@@ -73,6 +76,7 @@
 						about: false,
 						posts: false,
 						menu: true,
+						report: false,
 					}
 				}else {
 					return {
@@ -80,6 +84,7 @@
 						about: false,
 						posts: false,
 						menu: false,
+						report: false,
 					}
 				}
 			},

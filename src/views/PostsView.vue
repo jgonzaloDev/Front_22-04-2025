@@ -1,12 +1,12 @@
 <template>
 	<div class="posts container">
-		<img alt="mazebook" src="../assets/img/wordmark.svg" class="logo" />
+		<!-- <img alt="mazebook" src="../assets/img/wordmark.svg" class="logo" /> -->
 		<CardComp
 			class="mt-2 mx-auto single-spot"
 			picture="https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 			parrafo="primer carta"
 			:header="{
-				name: 'Sebastian Maikol',
+				name: 'Diego Bueno',
 				picture: 'https://randomuser.me/api/portraits/men/81.jpg',
 			}"
 			:likes="true" />
@@ -15,7 +15,7 @@
 			picture="https://images.pexels.com/photos/4067904/pexels-photo-4067904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 			parrafo="segunda carta"
 			:header="{
-				name: 'Susana Perez',
+				name: 'Shakira mi Crush',
 				picture: 'https://randomuser.me/api/portraits/women/81.jpg',
 			}"
 			:likes="true" />

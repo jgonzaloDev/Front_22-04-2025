@@ -14,6 +14,9 @@
 			<li class="list-group-item">
 				<router-link class="router-link" to="/menu">Menu</router-link>
 			</li>
+			<li class="list-group-item">
+				<router-link class="router-link" to="/report">Reporte</router-link>
+			</li>
 		</ul>
 		<img src="../assets/img/logo.png" alt="mazebook logo" />
 		<div class="text-black-50 text-center">mazebook &#169; 2022</div>

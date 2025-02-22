@@ -1,7 +1,7 @@
 <template>
 	<div class="about container">
 		
-		<h2 class="mt-5 mb-5 text-center">Mantenimiento de Usuarios</h2>
+		<h2 class="mt-5 mb-5 text-center">Consulta de Usuarios</h2>
 	
 
 		<form class="row g-3">
@@ -24,14 +24,14 @@
 				class="btn btn-primary mb-3">
 				Buscar Usuarios</button>
 			</div>
-			<div class="col-auto"> 
+			<!-- <div class="col-auto"> 
 				<button type="button" 
 				data-bs-toggle="modal" 
 				data-bs-target="#exampleModal" 
 				data-bs-whatever="@mdo"
 				class="btn btn-success mb-3">
 				Crear Usuarios</button>
-			</div>
+			</div> -->
 			<div class="col-auto"> 
 				<button type="button" 
 				@click="PDF()"
@@ -100,31 +100,31 @@
 			</table> -->
 
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">Recipient:</label>
+						<input type="text" class="form-control" id="recipient-name">
+					</div>
+					<div class="mb-3">
+						<label for="message-text" class="col-form-label">Message:</label>
+						<textarea class="form-control" id="message-text"></textarea>
+					</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Send message</button>
+					</div>
+				</div>
+			</div>
+			</div>
 	</div>
 </template>
 
@@ -155,6 +155,7 @@
 			],
 		
 		}),
+
 	// 	data() {
     //   return {
     //     fields: ['id', 'name', 'username', 'email'],
