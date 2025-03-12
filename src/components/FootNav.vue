@@ -18,8 +18,8 @@
 				<router-link class="router-link" to="/report">Reporte</router-link>
 			</li>
 		</ul>
-		<img src="../assets/img/logo.png" alt="mazebook logo" />
-		<div class="text-black-50 text-center">mazebook &#169; 2022</div>
+		<!-- <img src="../assets/img/logo.png" alt="mazebook logo" /> -->
+		<div class="text-black-50 text-center">Quinua Corp &#169; 2025</div>
 	</footer>
 </template>
 

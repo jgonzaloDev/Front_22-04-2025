@@ -12,7 +12,7 @@
     const generatePDF = () => {
               const dd = {
                     content: [
-                      { text: "Probando creando un PDF", style: "header" },
+                      { text: "GUIA DE REMISION", style: "header", class: "alineado" },
                       {
                         style: "tableExample",
                         table: {
@@ -63,3 +63,8 @@
             pdfMake.createPdf(dd).open();
     };
 </script>
+<style>
+.alineado{
+  text-align: center;
+}
+</style>

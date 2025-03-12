@@ -1,9 +1,6 @@
 <template>
 	<div class="about container">
-		
 		<h2 class="mt-5 mb-5 text-center">Consulta de Usuarios</h2>
-	
-
 		<form class="row g-3">
 			<div class="col-auto">
 				<input type="text" 
@@ -11,6 +8,7 @@
 				class="form-control-plaintext" 
 				id="staticLabel" 
 				value="Ingrese username: ">
+			<!-- <v-skeleton-loader type=""></v-skeleton-loader> -->
 			</div>
 			<div class="col-auto">
 				<input type="text" 
@@ -56,7 +54,9 @@
 				>
 			</div>
 		</form>
-			
+		<!-- <v-sheet color="grey" class="px-3 pt-3 pb-3" v-if="listardatos"> -->
+			<!-- <v-skeleton-loader class="mx-auto" type="table" v-if="!listardatos"></v-skeleton-loader> -->
+		<!-- </v-sheet> -->
 		<table id="elemento-to-pdf" style="margin-top: 24px;" class="table"
 		:items="listardatos" :fields="fields">
 			<thead class="table-dark">
@@ -67,7 +67,15 @@
 				<th scope="col">Correo</th>
 				</tr>	
 			</thead>
-			<tbody>
+			<tbody v-if="!listardatos">
+				<tr v-for="(row, rowIndex) in rows" :key="rowIndex">
+				<td v-for="(cell, cellIndex) in row" :key="cellIndex">
+				<Skeleton />
+				</td>
+				</tr>
+			</tbody>
+			<tbody v-else>
+				
 				<tr v-for="ld in listardatos" v-bind:key="ld.id">
 				<th scope="row">{{ ld.id }}</th>
 				<td>{{ ld.name }}</td>
@@ -134,16 +142,17 @@
 	import html2pdf from 'html2pdf.js'
   	import axios from 'axios'
 	import readXlsFile from 'read-excel-file'
+
 	export default {
 		name: 'App',
 		data: () => ({
-		
 			fields: ['id', 'name', 'username', 'email'],
+			rows: new Array(8).fill(new Array(4).fill(null)),
 			id: "",
 			name: "",
 			username: "",
 			email: "",
-			listardatos: [],
+			listardatos: null,
 			textUsername: '',
 			listaExcel: [],
 			fields2: [0, '', '', ''],
@@ -177,7 +186,10 @@
 
 	mounted(){
 		`${this.textUsername}`.valueOf("");
-		this.searchUser();
+		setTimeout(() => {
+			this.searchUser();
+		}, 5000);
+		
 	},
 
 	methods: {
@@ -203,15 +215,6 @@
 		let textUsername = `${this.textUsername}`;
 		console.log("user: ", textUsername)
 		
-		// try {
-		// 	const userToFind = await fetch(`${userapi}`)
-		// 	const user = await userToFind.json()
-		// 	this.userData = user
-		// 	console.log(user)
-		// 	return user
-		// } catch (error) {
-		// 	alert('Usuario no encontrado')
-		// }
 		axios.get(`${userapi}`)
 		.then(response => {
 			this.listardatos = textUsername == '' ? response.data : response.data.filter(item => item.username == textUsername);
@@ -261,4 +264,5 @@
 		max-width: 895px;
 		margin: auto;
 	}
+	
 </style>
