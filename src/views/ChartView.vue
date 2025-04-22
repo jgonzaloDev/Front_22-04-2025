@@ -62,6 +62,7 @@ const generatePDF = () => {
 </script>
 
 <template>
+   
   <div class="pdf-container">
     <button @click="generatePDF" class="pdf-button">Generate PDF</button>
   </div>

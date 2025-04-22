@@ -1,9 +1,6 @@
 <template>
 	<div class="about container">
-		
 		<h2 class="mt-5 mb-5 text-center">Consulta de Usuarios</h2>
-	
-
 		<form class="row g-3">
 			<div class="col-auto">
 				<input type="text" 
@@ -11,6 +8,7 @@
 				class="form-control-plaintext" 
 				id="staticLabel" 
 				value="Ingrese Alumno: ">
+			<!-- <v-skeleton-loader type=""></v-skeleton-loader> -->
 			</div>
 			<div class="col-auto">
 				<input type="text" 
@@ -54,7 +52,9 @@
 				>
 			</div>
 		</form>
-			
+		<!-- <v-sheet color="grey" class="px-3 pt-3 pb-3" v-if="listardatos"> -->
+			<!-- <v-skeleton-loader class="mx-auto" type="table" v-if="!listardatos"></v-skeleton-loader> -->
+		<!-- </v-sheet> -->
 		<table id="elemento-to-pdf" style="margin-top: 24px;" class="table"
 		:items="listaralumnos" :fields="fields_alumnos">
 			<thead class="table-dark">
@@ -65,14 +65,23 @@
 				<th scope="col">Correo</th>
 				</tr>	
 			</thead>
-			<tbody>
-				<tr v-for="ld in listaralumnos" v-bind:key="ld.id">
+			<tr v-for="ld in listaralumnos" v-bind:key="ld.id">
+			<tbody v-if="!listaralumnos">
+				<tr v-for="(row, rowIndex) in rows" :key="rowIndex">
+				<td v-for="(cell, cellIndex) in row" :key="cellIndex">
+				<Skeleton />
+				</td>
+				</tr>
+			</tbody>
+			<tbody v-else>
+				<tr v-for="ld in listardatos" v-bind:key="ld.id">
 				<th scope="row">{{ ld.id }}</th>
 				<td>{{ ld.matricula }}</td>
 				<td>{{ ld.nombre }}</td>
 				<td>{{ ld.email }}</td>
 				</tr>
 			</tbody>
+			</tr>
 			</table> 
 
 			<!-- <table
@@ -149,10 +158,10 @@
 	export default {
 		name: 'App',
 		data: () => ({
-		
 			fields: ['id', 'name', 'username', 'email'],
 			fields_alumnos: ['id', 'matricula', 'nombre', 'email', 'fecha_nacimiento', 'nivel_id', 'telefono'],
 			mostrarModal: false,
+			rows: new Array(8).fill(new Array(4).fill(null)),
 			id: "",
 			name: "",
 			username: "",
@@ -200,7 +209,10 @@
 
 	mounted(){
 		`${this.textUsername}`.valueOf("");
-		this.searchUser();
+		setTimeout(() => {
+			this.searchUser();
+		}, 5000);
+		
 	},
 
 	methods: {
@@ -340,7 +352,6 @@
 		max-width: 895px;
 		margin: auto;
 	}
-
 	.modal-overlay {
 		position: fixed;
 		top: 0;

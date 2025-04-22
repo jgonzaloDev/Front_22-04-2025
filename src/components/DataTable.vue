@@ -24,14 +24,14 @@
             <span class="dt-column-title"></span>
             <span class="dt-column-order"></span>
           </th>
-          <th data-dt-column="1" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc">
+          <th data-dt-column="1" style="width: 20px;" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc">
             <span class="dt-column-title" role="button">Titulo</span>
           </th>
           <th data-dt-column="2" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc">
             <span class="dt-column-title" role="button">Categoria</span>
           </th>
           <th class="d-flex align-items-center dt-orderable-none" data-dt-column="3" rowspan="1" colspan="1">
-            <span class="dt-column-title">Actions</span>
+            <span class="dt-column-title">Acciones</span>
           </th>
         </tr>
       </thead>
@@ -91,6 +91,8 @@
     import "@/assets/vendor/libs/datatables-buttons-bs5/buttons-bootstrap5.css";
     import "@/assets/vendor/js/menu.js";
     import "@/assets/vendor/js/bootstrap.js";
+  
+    
 
   export default {
     props: {
