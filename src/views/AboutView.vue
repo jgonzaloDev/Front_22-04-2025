@@ -10,7 +10,7 @@
 				readonly 
 				class="form-control-plaintext" 
 				id="staticLabel" 
-				value="Ingrese username: ">
+				value="Ingrese Alumno: ">
 			</div>
 			<div class="col-auto">
 				<input type="text" 
@@ -24,14 +24,12 @@
 				class="btn btn-primary mb-3">
 				Buscar Usuarios</button>
 			</div>
-			<!-- <div class="col-auto"> 
+			<div class="col-auto"> 
 				<button type="button" 
-				data-bs-toggle="modal" 
-				data-bs-target="#exampleModal" 
-				data-bs-whatever="@mdo"
+				@click="abrirModal()"
 				class="btn btn-success mb-3">
 				Crear Usuarios</button>
-			</div> -->
+			</div>
 			<div class="col-auto"> 
 				<button type="button" 
 				@click="PDF()"
@@ -58,20 +56,20 @@
 		</form>
 			
 		<table id="elemento-to-pdf" style="margin-top: 24px;" class="table"
-		:items="listardatos" :fields="fields">
+		:items="listaralumnos" :fields="fields_alumnos">
 			<thead class="table-dark">
 				<tr>
 				<th scope="col">#ID</th>
+				<th scope="col">Matricula</th>
 				<th scope="col">Nombre</th>
-				<th scope="col">Nombre de Usuario</th>
 				<th scope="col">Correo</th>
 				</tr>	
 			</thead>
 			<tbody>
-				<tr v-for="ld in listardatos" v-bind:key="ld.id">
+				<tr v-for="ld in listaralumnos" v-bind:key="ld.id">
 				<th scope="row">{{ ld.id }}</th>
-				<td>{{ ld.name }}</td>
-				<td>{{ ld.username }}</td>
+				<td>{{ ld.matricula }}</td>
+				<td>{{ ld.nombre }}</td>
 				<td>{{ ld.email }}</td>
 				</tr>
 			</tbody>
@@ -103,24 +101,34 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Alumno</h1>
+					<button type="button" class="btn-close" @click="cerrarModal()" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form>
-					<div class="mb-3">
-						<label for="recipient-name" class="col-form-label">Recipient:</label>
-						<input type="text" class="form-control" id="recipient-name">
-					</div>
-					<div class="mb-3">
-						<label for="message-text" class="col-form-label">Message:</label>
-						<textarea class="form-control" id="message-text"></textarea>
-					</div>
-					</form>
+						<form @submit.prevent="registrarAlumno">
+						<label>Matrícula:</label>
+						<input v-model="alumno.matricula" type="text" required />
+
+						<label>Nombre:</label>
+						<input v-model="alumno.nombre" type="text" required />
+
+						<label>Fecha de Nacimiento:</label>
+						<input v-model="alumno.fecha_nacimiento" type="date" required />
+
+						<label>Teléfono:</label>
+						<input v-model="alumno.telefono" type="text" required />
+
+						<label>Email:</label>
+						<input v-model="alumno.email" type="email" required />
+
+						<label>Nivel ID:</label>
+						<input v-model.number="alumno.nivel_id" type="number" required />
+
+						</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Send message</button>
+					<button type="submit" class="btn btn-success" @click="registrarAlumno()">Guardar</button>
+					<button type="button" class="btn btn-danger" @click="cerrarModal()">Cancelar</button>
 					</div>
 				</div>
 			</div>
@@ -129,21 +137,28 @@
 </template>
 
 <script >
-
+	import { ref } from "vue";
 	import { userapi } from '@/api/userapi'
 	import html2pdf from 'html2pdf.js'
   	import axios from 'axios'
 	import readXlsFile from 'read-excel-file'
+	import { alumnos } from '@/api/alumnos'
+
+	let modalInstance = null;
+
 	export default {
 		name: 'App',
 		data: () => ({
 		
 			fields: ['id', 'name', 'username', 'email'],
+			fields_alumnos: ['id', 'matricula', 'nombre', 'email', 'fecha_nacimiento', 'nivel_id', 'telefono'],
+			mostrarModal: false,
 			id: "",
 			name: "",
 			username: "",
 			email: "",
 			listardatos: [],
+			listaralumnos: [],
 			textUsername: '',
 			listaExcel: [],
 			fields2: [0, '', '', ''],
@@ -153,6 +168,14 @@
 				{text:"username", value:'2'},
 				{text:"email", value:'3'}
 			],
+			alumno: {
+				matricula: '',
+				nombre: '',
+				fecha_nacimiento: '',
+				telefono: '',
+				email: '',
+				nivel_id: 1
+			}
 		
 		}),
 
@@ -212,18 +235,25 @@
 		// } catch (error) {
 		// 	alert('Usuario no encontrado')
 		// }
-		axios.get(`${userapi}`)
+
+		// axios.get(`${alumnos}`)
+		// .then(response => console.log(response.data)
+		// )
+		// .catch(error => console.error("CORS error:", error));
+		
+		axios.get(`${alumnos}`)
 		.then(response => {
-			this.listardatos = textUsername == '' ? response.data : response.data.filter(item => item.username == textUsername);
-			if(this.listardatos.length == 0){
-				alert('Username no encontrado');
+			console.log("Respuesta: ", response.data);
+			this.listaralumnos = textUsername == '' ? response.data : response.data.filter(item => item.nombre == textUsername);
+			if(this.listaralumnos.length == 0){
+				alert('Alumno no encontrado');
 			}
-			console.log("Lista: ", this.listardatos);
+			// console.log("Lista: ", this.listardatos);
 
 		})
 		.catch(function (error){
-			alert('Username no encontrado')
-			console.log(error);
+			alert('Alumno no encontrado')
+			console.log("Error:", error);
 
 		})
 		.finally(function(){
@@ -250,6 +280,55 @@
 				jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
 			};
 			html2pdf().from(element).set(opt).save();
+		},
+		async registrarAlumno() {
+		
+			try {
+				const response = await axios.post(`${alumnos}`, this.alumno);
+				alert('Alumno registrado con éxito');
+				console.log(response.data);
+			
+
+				this.alumno = {
+				matricula: '',
+				nombre: '',
+				fecha_nacimiento: '',
+				telefono: '',
+				email: '',
+				nivel_id: 1
+				};
+
+				this.cerrarModal();
+
+				this.searchUser();
+
+			} catch (error) {
+				console.error(error);
+				alert('Error al registrar alumno');
+			}
+		},
+		abrirModal() {
+			const modalEl = document.getElementById('exampleModal')
+
+			if (!modalInstance) {
+			modalInstance = new bootstrap.Modal(modalEl, {
+				backdrop: true,
+				keyboard: true
+			});
+			}
+
+			modalInstance.show();
+		},
+		cerrarModal(){
+			const modalEl = document.getElementById('exampleModal')
+			modalInstance = bootstrap.Modal.getInstance(modalEl)
+			modalInstance.hide()
+			this.limpiarDrop();
+		},
+		limpiarDrop(){
+			document.querySelectorAll('.modal-backdrop').forEach((el, index) => {
+				if (index > 0) el.remove(); // elimina backdrops extras
+			});
 		}
 	}
 	}
@@ -261,4 +340,59 @@
 		max-width: 895px;
 		margin: auto;
 	}
+
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+	}
+
+/* .modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+} */
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
 </style>
