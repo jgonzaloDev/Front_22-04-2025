@@ -14,7 +14,7 @@
 	import NavComp from '@/components/NavComp.vue'
 	import FootNav from '@/components/FootNav.vue'
 	import DetectorComp from './components/DetectorComp.vue';
-	import Skeleton from 'primevue/skeleton';
+	// import Skeleton from 'primevue/skeleton';
 	//import VSkeletonLoader from '@/types/v-skeleton-loader.d.ts';
 
 	export default {
@@ -22,7 +22,7 @@
 		components: {
 			NavComp,
 			DetectorComp,
-			Skeleton,
+			//Skeleton,
 			//FootNav,
 		}
 	}

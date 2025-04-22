@@ -69,7 +69,7 @@
 			<tbody v-if="!listaralumnos">
 				<tr v-for="(row, rowIndex) in rows" :key="rowIndex">
 				<td v-for="(cell, cellIndex) in row" :key="cellIndex">
-				<Skeleton />
+				<!-- <Skeleton /> -->
 				</td>
 				</tr>
 			</tbody>
